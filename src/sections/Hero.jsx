@@ -1,3 +1,18 @@
+import { Button } from "@/components/Button";
+import { ArrowRight, ChevronDown, Download, Github, Linkedin } from "lucide-react";
+import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
+const skills =[
+    "React",
+    "Python",
+    "JavaScript",
+    "C#",
+    "C",
+    "SQL",
+    "PHP",
+    "HTML",
+    "CSS/Tailwindcss",
+    "SVG"
+];
 export const Hero = ()=>{
     return ( <section className="relative min-h-screen flex items-center overflow-hidden">
         {/*Background*/}
@@ -9,26 +24,163 @@ export const Hero = ()=>{
 
             <div className=" absolute inset-0  bg-linear-to-b from-background/20 via-background/80 to-background"></div>
         </div>
-    {/*Green Dots*/}
-   <div className="absolute inset-0 overflow-hidden pointer-events-none">
-    {[...Array(30)].map((_, i) => (
+    {/*Matrix-Fall*/}
+  {Array.from({ length: 20 }).map((_, i) => {
+  const side = Math.random() > 0.5 ? "left" : "right";
+  
+  // Define how far from the edge the columns start and how wide the area is
+  const margin = 0; 
+  const spread = 6; // Columns will appear within a 6% wide zone
+  
+  const xOffset = Math.random() * spread;
+
+  return (
     <div
       key={i}
-      className="absolute text-xs font-mono opacity-60"
+      className="absolute font-mono text-xs opacity-70 leading-tight"
       style={{
         color: "#6BFFB3",
-        left: `${Math.random() * 100}%`,
-        top: `${Math.random() * 100}%`,
-        animation: `vertical-scroll ${
-            15 + Math.random() *20
-        }s ease-in-out infinite `,
-        animationDelay: `${Math.random()*5}s`,
+        // Logic: 
+        // Left side: margin + offset (moves right)
+        // Right side: (100 - margin) - offset (moves left)
+        left: side === "left" 
+          ? `${margin + xOffset}%` 
+          : `${(100 - margin) - xOffset}%`,
+
+        top: "0%",
+        // Transform to ensure the element's own width doesn't shift the symmetry
+        transform: side === "right" ? "translateX(-100%)" : "none",
+
+        animation: `matrix-fall ${8 + Math.random() * 12}s linear infinite`,
+        animationDelay: `${Math.random() * 5}s`,
       }}
     >
-      {Math.round(Math.random())}
+      {Array.from({ length: 25 }).map((_, j) => (
+        <div key={j}>{Math.round(Math.random())}</div>
+      ))}
     </div>
-     ))}
+  );
+})}
+
+    {/*Content*/}
+    <div className="container mx-auto px-6 pt-32 pb-20 relative z-10 ">
+        <div className=" grid lg:grid-cols-2 gap-12 items-center " >
+            {/*Left-Column Text */}
+            <div className=" space-y-8">
+                <div className=" ml-12 animate-fade-in animate-delay-100">
+                    <span className=" inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-(--color-primary) ">
+                        <span className=" w-2 h-2 bg-(--color-primary) rounded-full animate-pulse " /> Software Developer <span className=" text-(--color-muted-foreground)">Student</span> 
+                    </span>
+                </div>
+                {/*HEADLINE*/}
+                <div className="ml-16 space-y-4">
+                    <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in animate-delay-300">
+                        Code with <span className="text-(--color-opposite) glow-text">Clarity.</span>
+                        <br/>
+                        Build with
+                        <br/>
+                        <span className=" text-(--color-primary) font-serif italic font-normal">Precision. </span>  
+                    </h1>
+
+                    <p className=" text-lg text-(--color-muted-foreground) max-w-lg animate-fade-in animate-delay-600 ">
+                        Hi, I'm Yadigar-a software developer in training who values clarity, 
+                        precision, and continuous learning. I have experience with HTML, CSS, JavaScript,React
+                         and C#, and I enjoy turning ideas into simple and effective digital experiences.
+                    </p>
+                </div>
+                {/*ACTION*/}
+                <div className=" ml-10 flex flex-wrap gap-4 animate-fade-in animation-delay-300">
+                    <Button> Contact Me <ArrowRight className="w-5  h-5" />
+
+                    </Button>
+
+                    <AnimatedBorderButton/>
+                </div>
+
+                {/*SOCIAL LINKS */}
+                <div className="flex items-center gap-4 animate-fade-in animation-delay-400">
+                    <span className="text-sm text-(--color-muted-foreground)">Follow me: </span>
+                    {[
+                        { icon: Github, href: "#"},
+                        { icon: Linkedin, href: "#"},
+                        
+                    ].map ((social, idx) => (
+                        <a key={idx} href="{social.href}"
+                        className="p-2 rounded-full glass hover:bg-(--color-primary)/10 hover:text-(--color-opposite) transition-all duration-300">
+                            {<social.icon  />}
+                            
+                        </a>
+                    ))}
+                    
+                </div>
+            </div>
+
+            {/*Right-Column Image */}
+            <div className="relative animate-fade-in animation-delay-300">
+                {/*PROFILE IMAGE*/}
+                <div className=" relative max-w-md mx-auto">
+                    <div
+                    className=" absolute inset-0 bg-linear-to-br from-(--color-primary)/30 via-transparent to-(--color-opposite)/20 blur-2xl animate-pulse"></div>
+                    <div className=" relative glass rounded-3xl p-2 glow-border">
+                        <img src="projects/profil-photo-2.png" alt="Yadigar Arslan" className="w-full  object-cover rounded-2xl" />
+                    </div>
+
+                    {/*FLOATING BADGE*/}
+                    <div className="absolute -bottom-4 -right-4 glass rounded-xl px-4 py-3 animate-float">
+                        <div className="flex items-center gap-3">
+                            <div className="w-3 h-3 bg-(--color-primary) rounded-full animate-pulse" ></div>
+                            <span className=" text-sm font-medium">
+                                    Avaible for Work
+
+                            </span>
+                            
+                        </div>
+                    </div>
+                        {/*STATS BADGE */}
+                        <div className=" absolute -top-4 -left-4 glass rounded-xl px-4 py-3 animate-float animation-delay-500">
+                            <div>
+                                <div className="text-md text-(--color-opposite)">Interdisciplinary Background in Law and</div>
+                                <div className=" text-2xl font-bold text-(--color-primary)">  Software Development</div>
+
+                            </div>
+
+                        </div>
+                    
+
+                </div>
+
+            </div>
+
+        </div>
+        {/*SKILLS*/}
+
+        <div className="mt-20 animate-fade-in animation-delay-500">
+            <p className=" text-sm text-(--color-muted-foreground) mb-6 text-center"> Tech Stack </p>
+
+        </div>
+        <div className=" relative overflow-hidden">
+            <div className="flex animate-marquee">
+                {[...skills,...skills]. map ((skill,idx)=> (
+                    <div key={idx} className="shrink-0 px-8 py-4">
+                        <span className=" text-xl font-semibold text-(--color-muted-foreground)/50 hover:text-(--color-muted-foreground) transition-colors">{skill}</span> 
+                        </div>
+                ))} 
+           </div>
+        </div>
     </div>
+
+    <div className=" absolute bottom-8 left-1/2 -translate-x-1/2 animate-fade-in animation-delay-600">
+                <a
+                href="#about"
+                className="flex flex-col items-center gap-2 text-(--color-muted-foreground) hover:text-(--color-primary) transition-colors group">
+                    <span className="text-xs uppercase tracking-wider">Scroll</span>
+                    <ChevronDown className="w-6 h-6 animate-bounce"/>
+
+                </a>
+
+    </div>
+    
+
 
     </section>
     );

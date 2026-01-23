@@ -2,6 +2,10 @@
 export default {
   theme: {
     extend: {
+      fontFamily :{
+        gemunu: ['Gemunu Libre','sans-serif'],
+        
+      },
       colors: {
         background: "var(--color-background)",
         foreground: "var(--color-foreground)",

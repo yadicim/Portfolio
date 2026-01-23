@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
 @import "tailwindcss";
 
 
@@ -9,7 +10,7 @@
 
   --color-card: #141a1f;
 
-  --color-primary: #6BFFB3;
+  --color-primary:#4CFF9A;
   --color-primary-foreground: #ffffff;
 
   --color-secondary: #1f2830;
@@ -24,23 +25,37 @@
 
   --color-highlight: #f5a623;
   --color-surface: #1a2329;
+  --color-opposite:#ff0088;
+
+  
 
 }
+
 @layer base{
   html {
    scroll-behavior: smooth; 
+   font-size: 24px;
+  
   }
 
   body{
     background-color: var(--color-background) ;
     color: var(--color-foreground);
-    font-family: "Inter", sans-serif;
+   
+    
+    font-family: "VT323", monospace;
+    font-weight: 400;
+    font-style: normal;
+    
   }
-  .font-serif{
-    font-family: "Playfair Display", serif;
+  }
+  .font-matrix{
+    font-family:  "VT323", monospace;
+    
+    
 
   }
-}
+
 @layer components {
   .glass {
     
@@ -55,6 +70,17 @@
     backdrop-filter: blur(24px);
     border: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
   }
+
+ .glow-text {
+  text-shadow: 0 0 30px
+    color-mix(in srgb, var(--color-opposite) 50%, transparent);
+  }
+  
+  .glow-border {
+    box-shadow: 0 0 20px
+      color-mix(in srgb, #ff0088 20%, transparent);
+  }
+
 }
 @layer utilities {
   @keyframes fade-in {
@@ -69,16 +95,87 @@
       filter: blur(0);
     }
     }
-  @keyframes vertical-scroll{
-     from {
-    transform: translateY(-50px);
+  @keyframes matrix-fall{
+    0% {
+    transform: translateY(-10%);
+    opacity: 0;
+    }
+    10% {
+    opacity: 1;
+    }
+    100% {
+    transform: translateY(110vh);
+    opacity: 0;
+    }
   }
-  to {
-    transform: translateY(50px);
+  @keyframes float {
+    0%, 
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
   }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
+
   .animate-fade-in {
     animation: fade-in 0.8s ease-out both;
 
   }
+  .animate-float{
+    animation:  float 4s ease-in-out infinite;
+  }
+
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+  .animate-delay-500 {
+    animation-delay: 500ms;
+  }
+  .animate-delay-600 {
+    animation-delay: 600ms;
+  }
+
+  @keyframes animated-border {
+    0% {
+      stroke-dashoffset: 400;
+    }
+    100% {
+      stroke-dashoffset: -550;
+    }
+    
+  }
+
+  .group:hover .animated-border-path{
+    animation: animated-border 1.5s linear infinite;
+
+  }
+
+  .animated-border:hover {
+    background-color: color-mix(in srgb, #4CFF9A 15%, transparent);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 0 20px color-mix(in srgb,#4CFF9A 20%, transparent);
+  }
+
 }
