@@ -1,5 +1,6 @@
 import { Download } from "lucide-react";
 
+
 export const AnimatedBorderButton = ({ children }) => {
   return (
     <button
@@ -31,8 +32,8 @@ export const AnimatedBorderButton = ({ children }) => {
         />
       </svg>
       <span className="relative z-10 flex items-center justify-center gap-2">
-        <Download/>
-        Download CV
+        
+        {children}
       </span>
     </button>
   );

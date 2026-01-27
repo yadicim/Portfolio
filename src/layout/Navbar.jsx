@@ -35,7 +35,7 @@ export const Navbar = ()=>{
 
             {/* LOGO*/}
             <a href="#" className="ml-10 text-xl font-bold tracking-tight hover:text-(--color-primary)">
-                Yadigar Arslan <span className="text-primary">.</span>
+                Yadigar Arslan <span className="text-primary"></span>
             </a>
 
             {/* NAVIGATION LINKS */}

@@ -1,10 +1,10 @@
 import { Button } from "@/components/Button";
-import { ArrowRight, ChevronDown, Download, Github, Linkedin } from "lucide-react";
+import { ArrowRight, ChevronDown, Download, Github, Linkedin , } from "lucide-react";
 import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
 const skills =[
     "React",
     "Python",
-    "JavaScript",
+    "JavaScript/ Bootstrap /JQuery",
     "C#",
     "C",
     "SQL",
@@ -94,18 +94,21 @@ export const Hero = ()=>{
 
                     </Button>
 
-                    <AnimatedBorderButton/>
+                    <AnimatedBorderButton>
+                        < Download className=" w-5 h-5" />
+                            Download CV
+                    </AnimatedBorderButton>
                 </div>
 
                 {/*SOCIAL LINKS */}
                 <div className="flex items-center gap-4 animate-fade-in animation-delay-400">
-                    <span className="text-sm text-(--color-muted-foreground)">Follow me: </span>
+                    <span className="ml-12 text-sm text-(--color-muted-foreground)">Follow me: </span>
                     {[
                         { icon: Github, href: "#"},
                         { icon: Linkedin, href: "#"},
                         
                     ].map ((social, idx) => (
-                        <a key={idx} href="{social.href}"
+                        <a key={idx} href={social.href}
                         className="p-2 rounded-full glass hover:bg-(--color-primary)/10 hover:text-(--color-opposite) transition-all duration-300">
                             {<social.icon  />}
                             
@@ -171,7 +174,7 @@ export const Hero = ()=>{
 
     <div className=" absolute bottom-8 left-1/2 -translate-x-1/2 animate-fade-in animation-delay-600">
                 <a
-                href="#about"
+                href="#About"
                 className="flex flex-col items-center gap-2 text-(--color-muted-foreground) hover:text-(--color-primary) transition-colors group">
                     <span className="text-xs uppercase tracking-wider">Scroll</span>
                     <ChevronDown className="w-6 h-6 animate-bounce"/>
