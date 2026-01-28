@@ -1,65 +1,65 @@
 const experiences = [
 
     {
-  period: "Apr 2025 – Jun 2025",
-  role: "Coding Instructor Intern",
-  company: "Kodarit, Koodikaverit Oy",
-  description:
-    "Completed an internship focused on teaching children coding using various programming tools, including Unity, Scratch, JavaScript, and Python. Worked as an assistant instructor, supporting children in completing programming tasks. Gained hands-on experience in programming education, interacting with children of different age groups, and applying versatile programming tools in an educational setting.",
-  current: false
+        period: "Apr 2025 – Jun 2025",
+        role: "Coding Instructor Intern",
+        company: "Kodarit, Koodikaverit Oy",
+        description:
+        " Completed an internship teaching children coding using Unity, Scratch, JavaScript, and Python. Assisted learners with programming tasks and gained practical experience in programming education and age-appropriate instruction.",
+       
     },
 
     {
-    period: "Apr 2023 – Jun 2023",
-    role: "Programming Intern",
-    company: "TrialDiginikkari, Business Asema, Oulu",
-    description:
-        "Completed a practical internship introducing the Python programming language through various programming exercises. Gained experience in 3D printing and laser cutting, combining software skills with hands-on digital fabrication techniques.",
-    current: false
+        period: "Apr 2023 – Jun 2023",
+        role: "Programming Intern",
+        company: "Diginikkari, Business Asema, Oulu",
+        description:
+            "Completed a practical internship introducing the Python programming language through various programming exercises. Gained experience in 3D printing and laser cutting, combining software skills with hands-on digital fabrication techniques.",
+        
     },
 
 
     {
-  period: "Mar 2018 – Apr 2019",
-  role: "Patent Infringement Legal Advisor",
-  company: "Yalciner Patent, Turkey",
-  description:
-    "Provided legal advice and guidance on patent infringement investigations. Core competencies included strong knowledge of legislation and legal substance, leadership skills, analytical thinking, motivating and inspiring others, and demonstrating high-level initiative and creativity in challenging legal cases.",
-  current: false
+        period: "Mar 2018 – Apr 2019",
+        role: "Patent Infringement Legal Advisor",
+        company: "Yalciner Patent, Turkey",
+        description:
+            "Provided legal advice and guidance on patent infringement investigations. Core competencies included strong knowledge of legislation and legal substance, leadership skills, analytical thinking, motivating and inspiring others, and demonstrating high-level initiative and creativity in challenging legal cases.",
+        
     },
 
     {
-    period: "Jul 2016 – Feb 2017",
-    role: "Investigating Judge",
-    company: "4th Civil Law Chamber of the Supreme Court, Turkey",
-    description:
-        "Conducted investigations into civil law compensation cases, including damages related to physical and psychological injuries, and prepared recommendations for the deciding higher court. Investigations were carried out through interviews with involved parties and by retrieving information from judicial information systems. Key competencies included effective time management to meet strict deadlines, strong analytical and problem-solving skills, excellent communication abilities, developing effective solutions in complex situations, and a strong commitment to continuous learning and improvement.",
-    current: false
+        period: "Jul 2016 – Feb 2017",
+        role: "Investigating Judge",
+        company: "4th Civil Law Chamber of the Supreme Court, Turkey",
+        description:
+            "Investigated civil law compensation cases involving physical and psychological injuries, conducted interviews, analyzed judicial data systems, and prepared recommendations for the higher court. Developed strong analytical, problem-solving, time management, and communication skills.",
+      
     },
-        {
-    period: "Mar 2015 – Jul 2016",
-    role: "Judge",
-    company: "Hendek Court, Turkey",
-    description:
-        "Served as a civil law judge handling cases such as compensation claims, divorce proceedings, real estate disputes, and debt-related matters. Reviewed preliminary investigation legal documents, prior memoranda, and court decisions. Prepared written legal justifications, issued judicial decisions, and communicated rulings to the involved parties. Key competencies included effective time management to meet strict deadlines, strong analytical and problem-solving skills, excellent interpersonal abilities, and developing effective solutions in challenging situations.",
-    current: false
+    {
+        period: "Mar 2015 – Jul 2016",
+        role: "Judge",
+        company: "Hendek Court, Turkey",
+        description:
+            "Served as a civil law judge handling compensation, divorce, real estate, and debt cases. Reviewed legal documents, prepared written justifications, issued decisions, and communicated rulings to involved parties, developing strong analytical, problem-solving, time management, and interpersonal skills.",
+        
     },
 
     {
-    period: "Nov 2013 – Mar 2015",
-    role: "Judicial Trainee",
-    company: "Ankara Court, Turkey",
-    description:
-        "Completed a comprehensive judicial traineeship covering all core areas of the judiciary, including criminal law and civil law. Worked across different shifts and times of day, gaining broad practical exposure to court operations. Key competencies included analytical thinking, strong organizational skills, effective communication, and a high level of attention to detail.",
-    current: false
+        period: "Nov 2013 – Mar 2015",
+        role: "Judicial Trainee",
+        company: "Ankara Court, Turkey",
+        description:
+            "Completed a judicial traineeship covering criminal and civil law, gaining broad practical experience in court operations across varied shifts, while developing strong analytical, organizational, communication, and attention-to-detail skills..",
+       
     },
     {
-    period: "Research Assistant",
-    role: "Research Assistant",
-    company: "Afyon Kocatepe University, Faculty of Law, Turkey",
-    description:
-        "Assisted legal researchers by conducting statistical, qualitative, and quantitative analyses. Collected, verified, processed, corrected, and visualized research data to support academic publications and reports through written analysis, charts, figures, and trend visualizations. Key competencies included research skills, analytical thinking, precision, self-direction, and strong knowledge of legislation.",
-    current: false
+        period: "Aug 2012 - Nov 2013",
+        role: "Research Assistant",
+        company: "Afyon Kocatepe University, Faculty of Law, Turkey",
+        description:
+            "Assisted legal researchers with statistical, qualitative, and quantitative analyses, managing and visualizing research data for academic publications while developing strong research, analytical, and legislative knowledge skills.",
+       
     },
     
     ];
@@ -67,9 +67,9 @@ const experiences = [
     export const Experience = () => {
          return (
              <section
-             id="experience "
+             id="experience"
              className="py-32 relative overflow-hidden">
-                <div className=" absolute TOP-1/2 left-1/4 w-96 h-96 
+                <div className=" absolute top-1/2 left-1/4 w-96 h-96 
                   bg-(--color-primary)/5 rounded-full blur-3xl -translate-y-1/2">
                     
                 </div>
@@ -89,22 +89,30 @@ const experiences = [
 
                     {/*TIMELINE*/}
                     <div className=" relative">
-                        <div className=" timeline-glow absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bh-linear-to-b from-(--color-primary)/70 via-(--color-primary)/30 to-transparent md:-translate-x-1/2 shadow-[0_0_25px_rgba(76,255,154,0.8)]">
+                        <div className=" timeline-glow absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-linear-to-b from-(--color-primary)/70 via-(--color-primary)/30 to-transparent md:-translate-x-1/2 shadow-[0_0_25px_rgba(76,255,154,0.8)]"/>
                         
                         {/*EXPERIENCE ITEMS*/}
                         <div className=" space-y-12">
                             {experiences.map((exp, idx) =>(
-                                <div key={idx}>
+                                <div key={idx} className=" relative grid md:grid-cols-2 gap-8 animate-fade-in"
+                                style={{ animationDelay: `${(idx +1)*150}ms`}}
+                                >
 
                                     {/*TIMELINE DOT */}
-                                    <div>
+                                    <div className=" absolute left-0 md:left-1/2 top-0 w-3 h-3 bg-(--color-primary) rounded-full -translate-x-1/2 ring-4 ring-(--color-opposite) z-10 ">
 
                                     </div>
 
                                     {/*CONTENT*/}
-                                    <div>
-                                        <div>
-                                            <span>{exp.period}</span>
+                                    <div className={`pl-8 md:pl-0 ${idx % 2 === 0 
+                                        ? "md:pr-16 md:text-right"
+                                        : " md:col-start-2 md:pl-16"
+                                        }`}>
+                                        <div className={` glass p-6 rounded-2xl border border-(--color-opposite)/40 hover:border-(--color-opposite)/80 transition-all duration-500`}>
+                                            <span className=" text-sm text-(--color-primary) font-medium">{exp.period}</span>
+                                            <h3 className=" text-xl font-bold mt-2">{exp.role}</h3>
+                                            <p className=" text-(--color-muted-foreground)">{exp.company}</p>
+                                            <p className="text-(--color-muted-foreground)">{exp.description}</p>
 
                                         </div>
 
@@ -116,7 +124,7 @@ const experiences = [
 
                         </div>
 
-                        </div>
+                        
 
                     </div>
 

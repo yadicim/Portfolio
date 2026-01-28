@@ -11,7 +11,7 @@ const navLinks=[
     {href: "#about", label: "About"},
     {href: "#projects", label: "Projects"},
     {href: "#experience", label: "Experience"},
-    {href: "#testimonials", label: "Testimonials"},
+    
 
 ];
 export const Navbar = ()=>{
@@ -39,8 +39,8 @@ export const Navbar = ()=>{
             </a>
 
             {/* NAVIGATION LINKS */}
-            <div className="hidden md:flex items-center gap-1">
-                <div className="glass rounded-full px-2 py-1 flex items-center gap-1">
+            <div className="hidden md:flex items-center gap-5">
+                <div className="glass rounded-full px-2 py-1 flex items-center gap-10">
                     {navLinks.map((link, index) => (
                         <a href={link.href} 
                         key={index}
