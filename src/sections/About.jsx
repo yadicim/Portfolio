@@ -76,7 +76,7 @@ export const About = ()=>{
                     </div>
                 </div>
                 {/*RIGHT COLUMN*/}
-                <div className=" grid sm:grid-cols-2 gap-6">
+                <div className=" grid sm:grid-cols-2 gap-6 lg:pt-28  ">
                     {highlights.map((item, idx) => (
                         <div key={idx} className="glass p-6 rounded-2xl animate-fade-in " 
                         style={{animationDelay: `${(idx +1 )* 100 }ms`}}

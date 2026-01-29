@@ -63,9 +63,14 @@ export const Projects = ()=>{
             </div>
             {/*PROJECTS*/}
             <div className=" grid md:grid-cols-2 gap-8">
-                {projects.map((project, idx)=> (
+                {projects.map((project, idx)=> {
+                    const isLastAndOdd = idx === projects.length - 1 && projects.length % 2 !== 0;
+                    return (
                     <div key={idx} 
-                    className="group glass rounded-2xl overflow-hidden animate-fade-in md:row-span-1 "
+                    className={`group glass rounded-2xl overflow-hidden animate-fade-in 
+                    ${isLastAndOdd ? "md:col-span-2 md:w-1/2 md:mx-auto" : "md:col-span-1"}
+                `}
+                    
                     style={{ animationDelay: `${(idx +1)* 100}ms`}}
                     >
                         {/*IMAGE*/}
@@ -119,7 +124,8 @@ export const Projects = ()=>{
                         </div>
 
                     </div>   
-                ))}
+                    );
+                })}
 
             </div>
 
