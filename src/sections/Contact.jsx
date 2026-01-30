@@ -1,8 +1,9 @@
-import { Mail, Phone, MapPin , Send} from "lucide-react";
+import { Mail, Phone, MapPin , Send, CheckCircle, AlertCircle} from "lucide-react";
 import {Button} from "@/components/Button"
 import { useState } from "react";
+import emailjs from "@emailjs/browser"
 
-const cintactInfo = [
+const contactInfo = [
     {
         icon:Mail,
         label:"Email",
@@ -33,11 +34,55 @@ export const Contact = ()=>{
         name:"",
         email:"",
         message:""
-    })
+    });
+
+    const [isLoading, setIsLoading] = useState(false);
+    const [submitStatus, setSubsmitStatus] = useState ({
+        type: null,
+        message: "",
+    });
 
     const handleSubmit = async(e) => {
         e.preventDefault();
-    }
+        setIsLoading(true);
+        setSubsmitStatus({ type: null, message: ""});
+        try {
+            const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+            const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+            const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+            if (!serviceId || !templateId || !publicKey){
+                throw new Error (
+                    "EmailJS configuration is missing. Please check your enviremen variables."
+                )
+            }
+
+            await emailjs.send(serviceId, templateId, {
+                name:formData.name ,
+                email: formData.email ,
+                message: formData.message ,
+            },
+            publicKey);
+
+            setSubsmitStatus({
+                type: "success",
+                message:"Message sent seccesfully! I'll get back to you soon.",
+            });
+            setFormData ({ name: "", email: "", message: ""});          
+
+
+        } catch (err) {
+            console.error("EmailJS error:", error);
+            setSubsmitStatus({
+                type: "error",
+                message: 
+                error.text || "Failed to send message. Please try again later.",
+            });
+
+        } finally {
+            setIsLoading(false)
+        }
+    };
     return (
 
     <section id="contact"
@@ -66,11 +111,12 @@ export const Contact = ()=>{
                     </p>
 
                 </div>
+                
                 <div className=" grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto ">
                     <div className="glass p-8 rounded-3xl border border-(--color-primary)/30 animate-fade-in animation-delay-300">
-                        <form className=" space-y-6 ">
-                            <div>
-                                <label htmlFor="name" className=" block text-sm font-medium mn-2" >Name</label>
+                        <form className=" space-y-6 " onSubmit={handleSubmit} >
+                            <div >
+                                <label htmlFor="name" className=" block text-sm font-medium mn-2 " >Name</label>
                                 <input id="name" type="text" 
                                 required
                                 placeholder="Your name"
@@ -96,7 +142,7 @@ export const Contact = ()=>{
                             </div>
 
                              <div>
-                                <label htmlFor="message" className=" block text-sm font-medium mn-2">Message</label>
+                                <label htmlFor="message" className=" block text-sm font-medium mb-2">Message</label>
                                 <textarea id="message" type="text"
                                 required                                
                                 value={formData.message}
@@ -107,13 +153,78 @@ export const Contact = ()=>{
                                 
                                 className=" w-full px-4 py-3 bg-(--color-surface) rounded-xl border border-(--color-border) focus:border-(--color-opposite) outline-none transition-all"/>
                             </div>
-                            <Button className=" w-full" type="submit" >
-                                Send Message
-                                <Send />
+                            <Button className=" w-full" type="submit" disabled={isLoading} >
+                               { isLoading ? (
+
+                                 <>Sending...</>
+
+                               ) : (
+                                <> Send Message
+                                <Send className=" w-5 h-5" /> 
+                                </>
+                                )
+                                }
 
                             </Button>
 
+                            { submitStatus.type && (
+                                <div className={` flex items-center gap-3 p-4 rounded-xl ${
+                                    submitStatus.type === "success"
+                                    ? "bg-green-500/10 border border-green-500/20 text-green-400"
+                                    : "bg-red-500/10 border border-red-500/20 text-red-400"
+                                }`}>
+                                    {submitStatus.type === "success" ? (
+                                        <CheckCircle className="w-5 h-5 shrink-0"/>
+                                    ) : (
+                                        <AlertCircle className="w-5 h-5 shrink-0"/>
+                                    )}
+                                    <p className=" text-sm">{submitStatus.message}</p>
+
+                                </div>
+                            )}
+
                         </form>
+                    </div>
+
+                    {/*CONTACT INFO */}
+                    <div className=" space-y-6 animate-fade-in animation-delay-400">
+                        <div className="glass rounded-3xl p-8">
+                            <h3 className=" text-xl font-semibold mb-6">
+                                Contact Information
+                            </h3>
+                            <div className=" space-y-4">
+                                {contactInfo.map((item,i)=>(
+                                    <a 
+                                        key={i}
+                                        href={item.href}
+                                        className=" flex items-center gap-4 p-4 rounded-xl hover:bg-(--color-surface) transition-colors group"
+                                    >
+                                    <div className=" w-12 h-12 rounded-xl bg-(--color-primary)/10 flex items-center justify-center group-hover:bg-(--color-primary)/20 transition-colors">
+                                        <item.icon className=" w-5 h-5 text-(--color-primary)"/>
+                                    </div>
+                                    <div>
+                                        <div className=" text-sm text-(--color-muted-foreground)">
+                                            {item.label}
+
+                                        </div>
+                                        <div className=" font-medium">{item.value}</div>
+                                    </div>
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/*AVAILABITY CARD*/}
+                        <div className=" glass rounded-3xl p-8 border border-(--color-opposite)/30">
+                                <div className="flex items-center gap-3 mb-4">
+                                    <span className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></span>
+                                    <span className=" font-medium"> Currently Avaible </span>
+                                </div>
+                                <p className=" text-(--color-muted-foreground) text-sm ">
+                                    I’m currently open to new opportunities and learning-focused projects.
+                                     Whether it’s a junior role, internship, or collaboration, feel free to get in touch.
+                                </p>
+                        </div>
                     </div>
 
                 </div>

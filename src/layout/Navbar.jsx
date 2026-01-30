@@ -7,6 +7,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 
 
+
 const navLinks=[
     {href: "#about", label: "About"},
     {href: "#projects", label: "Projects"},
@@ -68,7 +69,7 @@ export const Navbar = ()=>{
                 className="group-hover:text-(--color-opposite) transation duration-500" 
                 icon={faMagnifyingGlass} 
                 />
-    </button>
+                 </button>
                     </div>
                 </form>
             </div>
@@ -77,6 +78,9 @@ export const Navbar = ()=>{
         <Button 
         size="sm" 
         className="bg-linear-to-r from-[#4CFF9A] to-[#ff0088] text-black font-bold hover:opacity-90 transition-opacity border-none"
+        onClick={()=>{
+            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth'});
+        }}
         >
         Contact Me
         </Button>
@@ -84,8 +88,8 @@ export const Navbar = ()=>{
 
         </div>
 
-        {/* Mobile Menu Botton */}
-        <button className="md:hidden p-2 text-[var(--color-foreground) cursor-pointer "
+        {/* Mobile Menu Button */}
+        <button className="md:hidden p-2 text-(--color-foreground) cursor-pointer"
          onClick={()=> setIsMobileMenuOpen((prev)=>!prev)}>
            {isMobileMenuOpen ? < X size={24} />  : <Menu  size={24} /> }
 
@@ -109,7 +113,17 @@ export const Navbar = ()=>{
                         </a>
                     ))}
 
-                    <Button onClick={()=>setIsMobileMenuOpen(false)} className="bg-linear-to-r from-[#4CFF9A] to-[#ff0088] text-black font-bold hover:opacity-90 transition-opacity border-none">Contact Me</Button>
+                    <Button className="bg-linear-to-r from-[#4CFF9A] to-[#ff0088] text-black font-bold hover:opacity-90 transition-opacity border-none"
+                      onClick={() => {
+  
+                        setIsMobileMenuOpen(false);
+    
+   
+                        setTimeout(() => {
+                        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                        }, 100);
+                    }}  
+                        >Contact Me</Button>
 
             </div>
 
