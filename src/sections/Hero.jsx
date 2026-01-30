@@ -83,8 +83,8 @@ export const Hero = ()=>{
                     </h1>
 
                     <p className=" text-lg text-(--color-muted-foreground) max-w-lg animate-fade-in animate-delay-600 ">
-                        Hi, I'm Yadigar-a software developer in training who values clarity, 
-                        precision, and continuous learning. I have experience with HTML, CSS, JavaScript,React
+                        Hi, I'm Yadigar a software developer in training who values clarity, 
+                        precision, and continuous learning. I have experience with HTML, CSS, JavaScript, React
                          and C#, and I enjoy turning ideas into simple and effective digital experiences.
                     </p>
                 </div>

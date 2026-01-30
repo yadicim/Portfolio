@@ -8,6 +8,8 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 
 
+
+
 const navLinks=[
     {href: "#about", label: "About"},
     {href: "#projects", label: "Projects"},
@@ -16,6 +18,8 @@ const navLinks=[
 
 ];
 export const Navbar = ()=>{
+    const [search, setSearch] = useState("");
+
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
 
@@ -61,10 +65,18 @@ export const Navbar = ()=>{
             {/*SEARCH AREA */}
 
             <div>
-                <form>
+                <form
+                    onSubmit={(e) => {
+                    e.preventDefault();
+                    window.find(search);
+                }}>
                     <div className=" hidden md:flex group border-r px-4 mx-4 py-1 border-(--color-primary) ">
-                        <input type="text" className=" opacity-0 group-hover:opacity-100 bg-transparent border-b border-(--color-primary) focus:outline-none w-16 lg:w-24 transition duration-500 " />
-                        <button className="group -ml-4 transition duration-500">
+                        <input type="text" 
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                        placeholder="Search..."
+                        className=" opacity-0 group-hover:opacity-100 bg-transparent border-b border-(--color-primary) focus:outline-none w-16 lg:w-24 transition duration-500 " />
+                        <button type="submit" className="group -ml-4 transition duration-500">
                 <FontAwesomeIcon 
                 className="group-hover:text-(--color-opposite) transation duration-500" 
                 icon={faMagnifyingGlass} 
