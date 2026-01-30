@@ -94,10 +94,17 @@ export const Hero = ()=>{
 
                     </Button>
 
-                    <AnimatedBorderButton>
-                        < Download className=" w-5 h-5" />
+                    
+                    <a
+                    href="/cv/Yadigar_Arslan_en_cv.pdf"
+                    download
+                    className="inline-block "
+                    >
+                        <AnimatedBorderButton>
+                        < Download className=" w-5 h-5 " />
                             Download CV
                     </AnimatedBorderButton>
+                    </a>
                 </div>
 
                 {/*SOCIAL LINKS */}

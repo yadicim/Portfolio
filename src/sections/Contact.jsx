@@ -86,20 +86,20 @@ export const Contact = ()=>{
     return (
 
     <section id="contact"
-        className="py-32 relative overflow-hidden">
+        className="py-32 relative overflow-hidden ">
         
             <div className=" absolute top-0 left-1/4 w-96 h-96 
                     bg-(--color-primary)/5 rounded-full blur-3xl ">
                     
                     <div className=" absolute bottom-1/4 right-1/4 w-64 h-64 bg(--color-highlight)/5 rounded-full blur-3xl"></div>
             </div>        
-            <div className=" container mx-auto px-6 relative z-10 ">
+            <div className=" container mx-auto px-4 md:px-6 relative z-10 ">
             
 
                 {/*HEADER SECTION*/}
                 <div className=" text-center mx-auto max-w-3xl mb-16">
                     <span className=" text-(--color-secondary-foreground) text-sm font-medium tracking-wider uppercase animate-fade-in ">Get In Touch</span>
-                    <h2 className=" text-(--color-opposite) text-4xl md:text-5xl font-bold mt-4 mb-6 animate-fade-in animation-delay-100">
+                    <h2 className=" text-(--color-opposite) text-3xl md:text-5xl font-bold mt-4 mb-6 animate-fade-in animation-delay-100">
                     Lets build
                     <span className="font-serif italic font-normal text-white">  something great.
                     </span>
@@ -112,11 +112,11 @@ export const Contact = ()=>{
 
                 </div>
                 
-                <div className=" grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto ">
-                    <div className="glass p-8 rounded-3xl border border-(--color-primary)/30 animate-fade-in animation-delay-300">
+                <div className=" grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto ">
+                    <div className="glass p-6 md:p-6 rounded-3xl border border-(--color-primary)/30 animate-fade-in animation-delay-300">
                         <form className=" space-y-6 " onSubmit={handleSubmit} >
                             <div >
-                                <label htmlFor="name" className=" block text-sm font-medium mn-2 " >Name</label>
+                                <label htmlFor="name" className=" block text-sm font-medium mb-2 " >Name</label>
                                 <input id="name" type="text" 
                                 required
                                 placeholder="Your name"
@@ -143,7 +143,7 @@ export const Contact = ()=>{
 
                              <div>
                                 <label htmlFor="message" className=" block text-sm font-medium mb-2">Message</label>
-                                <textarea id="message" type="text"
+                                <textarea id="message" rows={4}
                                 required                                
                                 value={formData.message}
                                 onChange={(e) =>
@@ -188,7 +188,7 @@ export const Contact = ()=>{
 
                     {/*CONTACT INFO */}
                     <div className=" space-y-6 animate-fade-in animation-delay-400">
-                        <div className="glass rounded-3xl p-8">
+                        <div className="glass rounded-3xl p-6 md:p-8">
                             <h3 className=" text-xl font-semibold mb-6">
                                 Contact Information
                             </h3>
@@ -215,7 +215,7 @@ export const Contact = ()=>{
                         </div>
 
                         {/*AVAILABITY CARD*/}
-                        <div className=" glass rounded-3xl p-8 border border-(--color-opposite)/30">
+                        <div className=" glass rounded-3xl p-6 md:p-8 border border-(--color-opposite)/30">
                                 <div className="flex items-center gap-3 mb-4">
                                     <span className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></span>
                                     <span className=" font-medium"> Currently Avaible </span>
