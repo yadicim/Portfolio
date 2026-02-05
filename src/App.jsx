@@ -8,10 +8,10 @@ import { Contact } from "@/sections/Contact";
 import { Footer } from "@/layout/Footer";
 import  Toggle  from "@/components/Toggle"; 
 import { ThemeContext } from "@/Context";
-import { useTranslation } from "react-i18next";
+
 
 function App() { 
-  const {t, i18n}= useTranslation()
+
 
   const theme = useContext(ThemeContext);
   
