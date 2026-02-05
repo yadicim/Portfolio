@@ -20,7 +20,7 @@ const highlights =[
     {
         icon: PuzzleIcon,
         title : "Problem-Solving Mindset",
-        description: "A structured and analytical approach to breaking down complex problems and finding practical, effective solutions."
+        description: "Thinking like a web developer by analyzing requirements, structuring logic, and building scalable, maintainable solutions."
 
     },
 
